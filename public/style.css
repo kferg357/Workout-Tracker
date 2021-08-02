@@ -32,17 +32,20 @@ a:visited {
   color: inherit;
 }
 
-nav a {
+
+
+/* nav a {
   padding: 18px;
   transition-property: color, background;
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
+} */
+/* 
 nav a:hover {
   background-color: #ffffff;
   color: #5793fd;
-}
+  
+} */
 
 header {
   height: 150px;
@@ -50,6 +53,11 @@ header {
   text-align: center;
   font-size: 1.5rem;
 }
+header h1{
+  transform: skew(-2deg);
+}
+
+
 
 select {
   display: block;
