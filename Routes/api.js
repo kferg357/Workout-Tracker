@@ -11,7 +11,7 @@ router.post("/api/workouts", ({ body }, res) => {
         });
 });
 
-router.put("/api/workouts/:id", ({ body, params }), res => {
+router.put("/api/workouts/:id", ({ body, params }, res) => {
     console.log(body)
     Workout.findByIdAndUpdate(params.id,
         { $push: { exercises: body } }, { new: true })
@@ -33,7 +33,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-router.get("/api/workouts", (req, res) => {
+router.get("/api/workouts/range", (req, res) => {
     Workout.find({})
     .limit(10)
     .then(dbWorkout => {
