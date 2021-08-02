@@ -254,10 +254,32 @@ function calculateTotalWeight(data) {
   });
   return total;
 } 
+
+function weightByWorkout(data) {
+  let total = [];
+  
+  data.forEach(workout => {
+    workout.exercises.forEach(exercise => {
+      total.push(exercise.weight);
+    });
+  });
+  return total;
+}
+
+function workoutNames(data) {
+  let workouts = [];
+
+  data.forEach(workout => {
+    workout.exercises.forEach(exercise => {
+      workout.push(exercise.name);
+    });
+  });
+  return workouts;
 }
 
 
 
 
+
   // get all workout data from back-end
-  API.getWorkoutsInRange().then(populateChart);
+  // API.getWorkoutsInRange().then(populateChart);
