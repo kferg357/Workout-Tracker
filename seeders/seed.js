@@ -4,12 +4,12 @@ const db = require('../models');
 mongoose.connect('mongodb://localhost/workout', {
   useNewUrlParser: true,
   useFindAndModify: false,
-  useUnifiedTopology: true,
+  // useUnifiedTopology: true,
 });
 
 const workoutSeed = [
   {
-    day: new Date(new Date().setDate(new Date().getDate() - 9)),
+    day: new Date().setDate(new Date().getDate() - 010),
     exercises: [
       {
         type: 'resistance',
