@@ -1,6 +1,6 @@
-const { response } = require("express");
+// const { response } = require("express");
 
-fetch("/api/workouts/ranger")
+fetch("/api/workouts/range")
   .then(response => {
     return response.json();
   })
@@ -33,8 +33,8 @@ function generatePalette() {
 }
 
 
-function calculateTotalWeight(data) {
-  const totals = [];
+// function calculateTotalWeight(data) {
+//   const totals = [];
 
   //   data.forEach((workout) => {
   //     const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
@@ -134,7 +134,7 @@ function calculateTotalWeight(data) {
           "Wednesday",
           "Thursday",
           "Friday",
-          "Saturday"
+          "Saturday",
         ],
         datasets: [ 
           {
@@ -177,7 +177,7 @@ function calculateTotalWeight(data) {
       },
     });
   
-  let pirChart = new Chart(pie, {
+  let pieChart = new Chart(pie, {
     type: "pie",
     data: {
       labels: workouts,
@@ -204,7 +204,7 @@ function calculateTotalWeight(data) {
       datasets: [
         {
           label: "Exercise Performed",
-          backgroundColor: color,
+          backgroundColor: colors,
           data: totalWeights
         }
       ]
@@ -220,7 +220,8 @@ function calculateTotalWeight(data) {
 
 function duration(data) {
   let duration = [0, 0, 0, 0, 0, 0, 0];
-  data.array.forEach(workout => {
+
+  data.forEach(workout => {
     let day = new Day(workout.day)
     let dayIndex = day.getDay();
     workout.exercises.forEach(exercise => {
@@ -244,11 +245,12 @@ function durationByWorkout(data) {
 
 function calculateTotalWeight(data) {
   let total = [0, 0, 0, 0, 0, 0, 0];
-  data.array.forEach(workout => {
-    let day = new Day(workout.day)
+
+  data.forEach(workout => {
+    let day = new Date(workout.day)
     let dayIndex = day.getDay();
     workout.exercises.forEach(exercise => {
-      let newWeight = durations[dayIndex] + exercise.weight
+      let newWeight = total[dayIndex] + exercise.weight
       total.splice(dayIndex, 1, newWeight);
     });   
   });
@@ -271,7 +273,7 @@ function workoutNames(data) {
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
-      workout.push(exercise.name);
+      workouts.push(exercise.name);
     });
   });
   return workouts;
