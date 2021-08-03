@@ -51,9 +51,9 @@ function generatePalette() {
   // }
 
   function populateChart(data) {
-    let durations = durations(data);
+    let durations = duration(data);
     let pounds = calculateTotalWeight(data);
-    let durationByWorkout = durationByWorkout(data);
+    let durationsByWorkout = durationByWorkout(data);
     let totalWeights = weightByWorkout(data);
     let workouts = workoutNames(data);
     const color = generatePalette();
@@ -185,7 +185,7 @@ function generatePalette() {
         {
           label: "Exercises Performed",
           backgroundColor: colors,
-          data: durationByWorkout
+          data: durationsByWorkout
         }
       ]
     },
@@ -219,10 +219,10 @@ function generatePalette() {
 }
 
 function duration(data) {
-  let duration = [0, 0, 0, 0, 0, 0, 0];
+  let durations = [0, 0, 0, 0, 0, 0, 0];
 
   data.forEach(workout => {
-    let day = new Day(workout.day)
+    let day = new Date(workout.day)
     let dayIndex = day.getDay();
     workout.exercises.forEach(exercise => {
       let newDuration = durations[dayIndex] + exercise.duration
@@ -233,7 +233,7 @@ function duration(data) {
 } 
 
 function durationByWorkout(data) {
-  let duration = [];
+  let durations = [];
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
@@ -284,4 +284,4 @@ function workoutNames(data) {
 
 
   // get all workout data from back-end
-  // API.getWorkoutsInRange().then(populateChart);
+  API.getWorkoutsInRange().then((data) => populateChart(data));
