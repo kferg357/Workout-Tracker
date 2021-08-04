@@ -1,12 +1,4 @@
-// const { response } = require("express");
 
-// fetch("/api/workouts/range")
-//   .then(response => {
-//     return response.json();
-//   })
-//   .then(data => {
-//     populateChart(data);
-//   });
 
 API.getWorkoutsInRange()
 
@@ -243,19 +235,7 @@ function durationByWorkout(data) {
   return durations;
 };
 
-// function calculateTotalWeight(data) {
-//   let total = [0, 0, 0, 0, 0, 0, 0];
 
-//   data.forEach(workout => {
-//     let day = new Date(workout.day)
-//     let dayIndex = day.getDay();
-//     workout.exercises.forEach(exercise => {
-//       let newWeight = total[dayIndex] + exercise.weight
-//       total.splice(dayIndex, 1, newWeight);
-//     });   
-//   });
-//   return total;
-// } 
 
 function weightByWorkout(data) {
   let total = [];
@@ -279,9 +259,11 @@ function workoutNames(data) {
   return workouts;
 }
 
-
-
-
-
-  // get all workout data from back-end
+// get all workout data from back-end
   API.getWorkoutsInRange().then((data) => populateChart(data));
+
+
+
+
+
+  
