@@ -33,22 +33,22 @@ function generatePalette() {
 }
 
 
-// function calculateTotalWeight(data) {
-//   const totals = [];
+function calculateTotalWeight(data) {
+  const totals = [];
 
-  //   data.forEach((workout) => {
-  //     const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
-  //       if (type === 'resistance') {
-  //         return total + weight;
-  //       }
-  //       return total;
-  //     }, 0);
+    data.forEach((workout) => {
+      const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
+        if (type === 'resistance') {
+          return total + weight;
+        }
+        return total;
+      }, 0);
 
-  //     totals.push(workoutTotal);
-  //   });
+      totals.push(workoutTotal);
+    });
 
-  //   return totals;
-  // }
+    return totals;
+  }
 
   function populateChart(data) {
     let durations = duration(data);
@@ -243,19 +243,19 @@ function durationByWorkout(data) {
   return durations;
 };
 
-function calculateTotalWeight(data) {
-  let total = [0, 0, 0, 0, 0, 0, 0];
+// function calculateTotalWeight(data) {
+//   let total = [0, 0, 0, 0, 0, 0, 0];
 
-  data.forEach(workout => {
-    let day = new Date(workout.day)
-    let dayIndex = day.getDay();
-    workout.exercises.forEach(exercise => {
-      let newWeight = total[dayIndex] + exercise.weight
-      total.splice(dayIndex, 1, newWeight);
-    });   
-  });
-  return total;
-} 
+//   data.forEach(workout => {
+//     let day = new Date(workout.day)
+//     let dayIndex = day.getDay();
+//     workout.exercises.forEach(exercise => {
+//       let newWeight = total[dayIndex] + exercise.weight
+//       total.splice(dayIndex, 1, newWeight);
+//     });   
+//   });
+//   return total;
+// } 
 
 function weightByWorkout(data) {
   let total = [];
