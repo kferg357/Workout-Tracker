@@ -1,12 +1,12 @@
 // const { response } = require("express");
 
-fetch("/api/workouts/range")
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    populateChart(data);
-  });
+// fetch("/api/workouts/range")
+//   .then(response => {
+//     return response.json();
+//   })
+//   .then(data => {
+//     populateChart(data);
+//   });
 
 API.getWorkoutsInRange()
 
@@ -56,24 +56,24 @@ function generatePalette() {
     let durationsByWorkout = durationByWorkout(data);
     let totalWeights = weightByWorkout(data);
     let workouts = workoutNames(data);
-    const color = generatePalette();
+    const colors = generatePalette();
 
 
     let line = document.querySelector('#canvas').getContext('2d');
     let bar = document.querySelector('#canvas2').getContext('2d');
-    let pie = document.querySelector('#canvas2').getContext('2d');
-    let pie2 = document.querySelector('#canvas2').getContext('2d');
+    let pie = document.querySelector('#canvas3').getContext('2d');
+    let pie2 = document.querySelector('#canvas4').getContext('2d');
 
-    // const labels = data.map(({ day }) => {
-    //   const date = new Date(day);
+    const labels = data.map(({ day }) => {
+      const date = new Date(day);
 
-    //   // Use JavaScript's `Intl` object to help format dates
-    //   return new Intl.DateTimeFormat('en-US', {
-    //     weekday: 'short',
-    //     month: 'short',
-    //     day: 'numeric',
-    //   }).format(date);
-    // });
+      // Use JavaScript's `Intl` object to help format dates
+      return new Intl.DateTimeFormat('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+      }).format(date);
+    });
 
     let lineChart = new Chart(line, {
       type: 'line',
