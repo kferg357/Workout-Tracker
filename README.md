@@ -40,5 +40,5 @@ None
 ### Questions
 
 N/A
-* Github :d
-* Email :gmail.com
+* Github : https://github.com/kferg357
+* Email : kennethferguson90@gmail.com
