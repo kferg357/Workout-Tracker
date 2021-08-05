@@ -21,8 +21,8 @@ The fitness tracker app allows users to customize and record their workout numbe
 
 ### Technologies
 
-Node.js
-Mongo AtlasDB
+Node.js,
+Mongo AtlasDB,
 Heroku Hosting
 
 ### Installation
