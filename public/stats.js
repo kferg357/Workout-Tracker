@@ -43,20 +43,14 @@ function populateChart(data) {
 
   const durations = duration(data);
   const pounds = calculateTotalWeight(data);
-  const durationsByWorkout = durationByWorkout(data);
-  // let totalWeights = weightByWorkout(data);
-  // let workouts = workoutNames(data);
-  // const colors = generatePalette();
-
-
+  
   let line = document.querySelector('#canvas').getContext('2d');
   let bar = document.querySelector('#canvas2').getContext('2d');
 
 
   let labels = data.map(({ day }) => {
     const date = new Date(day);
-
-    // Use JavaScript's `Intl` object to help format dates
+    //  Use JavaScript's `Intl` object to help format dates
     return new Intl.DateTimeFormat('en-US', {
       weekday: 'short',
       month: 'short',
@@ -166,45 +160,7 @@ function populateChart(data) {
     },
   });
 
-  // let pieChart = new Chart(pie, {
-  //   type: "pie",
-  //   data: {
-  //     labels: workouts,
-  //     datasets:[
-  //       {
-  //         label: "Exercises Performed",
-  //         backgroundColor: colors,
-  //         data: durationsByWorkout
-  //       }
-  //     ]
-  //   },
-  //   options: {
-  //     title: {
-  //       display: true,
-  //       text: "Excercises Performed by time"
-  //     }
-  //   }
-  // });
-
-  // let donutChart = new Chart(pie2, {
-  //   type: "doughnut",
-  //   data: {
-  //     labels: workouts,
-  //     datasets: [
-  //       {
-  //         label: "Exercise Performed",
-  //         backgroundColor: colors,
-  //         data: totalWeights
-  //       }
-  //     ]
-  //   },
-  //   options: {
-  //     title: {
-  //       display: true,
-  //       text: "Excercises Performed"
-  //     }
-  //   }
-  // });
+  
 }
 
 function duration(data) {
