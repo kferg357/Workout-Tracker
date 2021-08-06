@@ -23,8 +23,8 @@ process.env.MONGODB_URI || 'mongodb://localhost/workout',
 );
 
 
-app.use(require("./routes/api.js"));
-app.use(require("./routes/views.js"));
+app.use(require("./Routes/api.js"));
+app.use(require("./Routes/views.js"));
 
 app.listen(PORT, () => {
     console.log(`Apprunning on port ${PORT}!`);
