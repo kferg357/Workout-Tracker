@@ -19,7 +19,8 @@ The fitness tracker app allows users to customize and record their workout numbe
 
 ### Usage
 ![fitness tracker picture](https://user-images.githubusercontent.com/79925523/128615145-c3019eb1-22a3-470a-a4e7-bee7dafe9f98.PNG)
-![fitness tracker total workout](https://user-images.githubusercontent.com/79925523/128615157-61cba17a-7834-4670-bbda-cc3ad7bb19b4.PNG)
+![fitness tracker workout dashboard](https://user-images.githubusercontent.com/79925523/128615180-e2b12089-5f03-448d-89c2-eda1b59eb708.PNG)
+
 
 ### Technologies
 
